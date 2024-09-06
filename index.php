@@ -19,8 +19,10 @@ echo "{$name} how are u doing";
 echo "The total amount is \${$amount}<br>";
 echo '<br>Hello the last line is here <br>';
 
-echo $_POST["username"] . '<br>';
-echo $_POST["password"] . '<br>';
+print $_POST;
+$name = $_POST['username'] . '<br>';
+$password = $_POST['password'] . '<br>';
+echo $name .''. $password;
 ?>
 
 <!DOCTYPE html>

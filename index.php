@@ -36,6 +36,8 @@ echo '<br>Hello the last line is here <br>';
     <form action="index.php" method="post">
         <label for="username">Radius</label><br>
         <input name="num" type="text" /><br>
+         Name: <br>
+         <input type="text" name="fname"><br>
 
         <!-- <label for="password">Password</label><br>
         <input name="password" type="password" /><br> -->
@@ -44,27 +46,36 @@ echo '<br>Hello the last line is here <br>';
 
     </form>
 
+   
+
+<?php
+  $name = $_REQUEST['fname'];
+  $age = $_POST['num'] . '<br>';
+  echo $name . ' is my name'. '<br>';  
+  echo $age . ' is my current age'. '<br>';
+  
+?>
+
 </body>
 
 </html>
 <?php 
 
 // $name = $_POST['username'] . '<br>';
-$age = $_POST['num'] . '<br>';
-echo $age;
-$output = null;
-$age = null;
 
-if(!$age){
-    $output = 'Please enter your age';
-} elseif($age > 18){
-    $output = 'You can vote';
-} elseif($age < 18){
-    $output = 'You can\'t vote' ;
-} else {
-    $output = 'Your age is invalid';
-}
-echo $output. '<br>';
+// $output = null;
+// $age = null;
+
+// if(!$age){
+//     $output = 'Please enter your age';
+// } elseif($age > 18){
+//     $output = 'You can vote';
+// } elseif($age < 18){
+//     $output = 'You can\'t vote' ;
+// } else {
+//     $output = 'Your age is invalid';
+// }
+// echo $output. '<br>';
 
 define('car', ['BMW', 'Ikendu', 'Ezendu', 'Ezeuba']);
 echo car[0] . '<br>';
@@ -103,6 +114,8 @@ array_push($cars, 'Merce1');
 array_push($cars, 'Merce2');
 print_r($cars);
 echo $cars[5];
+
+
 
 
 ?>

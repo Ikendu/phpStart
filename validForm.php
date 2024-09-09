@@ -14,13 +14,12 @@ $name = $email = $gender = $comment = $website = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
-    $nameErr = "Name is required";
-  } else {
-    $name = test_input($_POST["name"]);
+    $nameErr = "Name is required";    
+  } elseif(!preg_match("/^[a-zA-Z-' ]*$/",$name)){
     // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
-      $nameErr = "Only letters and white space allowed";
-    }
+    $nameErr = "Only letters and white space allowed";    
+  } else{
+    $name = test_input($_POST["name"]);
   }
   
   if (empty($_POST["email"])) {
@@ -88,7 +87,10 @@ function test_input($data) {
 </form>
 
 <?php
-echo "<h2>Your Input:</h2>";
+if($emailErr || $nameErr || $websiteErr || $genderErr){
+    echo 'Check the form for errors and try again';
+} else {
+  echo "<h2>Your Input:</h2>";
 echo $name;
 echo "<br>";
 echo $email;
@@ -97,7 +99,9 @@ echo $website;
 echo "<br>";
 echo $comment;
 echo "<br>";
-echo $gender;
+echo $gender;  
+}
+
 ?>
 
 </body>

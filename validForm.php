@@ -101,8 +101,27 @@ echo $comment;
 echo "<br>";
 echo $gender;  
 }
+?>
+<br>
+&copy; 2020 - <?php echo date("Y"); ?>
+<br>
+<?php date_default_timezone_set('Africa/Lagos'); ?>
+<?php echo "The time is " . date("h:i:sa"); ?>
+<br>
+<?php
+$d = mktime(11, 14, 54, 8, 12, 2014);
+$dt = strtotime("April 15 2014 10:30pm ");
+echo "Created date is " . date("m-Y-d h:i:sa", $d).'<br>';
+echo date("d-m-Y h:i:sa", $dt) . '<br>';
+
+$startday = strtotime('Saturday');
+$endday = strtotime('+9 weeks', $startday);
+
+while($startday < $endday){
+    echo date('M d', $startday).'<br>';
+    $startday = strtotime('+1 week', $startday);
+}
 
 ?>
-
 </body>
 </html>

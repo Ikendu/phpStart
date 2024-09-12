@@ -33,14 +33,14 @@ echo '<br>Hello the last line is here <br>';
 </head>
 
 <body>
-    <form action="index.php" method="post">
-        <label for="username">Radius</label><br>
-        <input name="num" type="text" /><br>
+    <form action="index.php" method="get">
+        <!-- <label for="username">Radius</label><br>
+        <input name="num" type="text" /><br> -->
          Name: <br>
          <input type="text" name="fname"><br>
 
-        <!-- <label for="password">Password</label><br>
-        <input name="password" type="password" /><br> -->
+        <label for="password">Password</label><br>
+        <input name="password" type="password" /><br>
 
         <input type="submit" placeholder="Submit">
 
@@ -50,9 +50,9 @@ echo '<br>Hello the last line is here <br>';
 
 <?php
   $name = $_REQUEST['fname'];
-  $age = $_POST['num'] . '<br>';
+  $password = $_REQUEST['password'];
   echo $name . ' is my name'. '<br>';  
-  echo $age . ' is my current age'. '<br>';
+  echo $password . ' is my current password'. '<br>';
   
 ?>
 
@@ -77,43 +77,43 @@ echo '<br>Hello the last line is here <br>';
 // }
 // echo $output. '<br>';
 
-define('car', ['BMW', 'Ikendu', 'Ezendu', 'Ezeuba']);
-echo car[0] . '<br>';
-echo car[2] . '<br>';
+// define('car', ['BMW', 'Ikendu', 'Ezendu', 'Ezeuba']);
+// echo car[0] . '<br>';
+// echo car[2] . '<br>';
 
-$x = array("blue", "yellow");  
-$y = array( "blue", "yellow");  
+// $x = array("blue", "yellow");  
+// $y = array( "blue", "yellow");  
 
-var_dump($x == $y) .'<br>';
+// var_dump($x == $y) .'<br>';
 
-$names = ['chuks', 'Hen', 'Mach', 'Mill'];
-foreach($names as $xy){
-    echo $xy . ' ';
-}
+// $names = ['chuks', 'Hen', 'Mach', 'Mill'];
+// foreach($names as $xy){
+//     echo $xy . ' ';
+// }
 
-$members = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+// $members = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
 
-foreach ($members as $x => $y) {
-  echo "$x : $y <br>";
-}
-function addNumbers(int $a, int $b) {
-  return $a + $b;
-}
-echo addNumbers(5, '90'); 
+// foreach ($members as $x => $y) {
+//   echo "$x : $y <br>";
+// }
+// function addNumbers(int $a, int $b) {
+//   return $a + $b;
+// }
+// echo addNumbers(5, '90'); 
 
-$cars[5] = "Volvo";
-$cars[7] = "BMW";
-$cars[14] = "Toyota";
+// $cars[5] = "Volvo";
+// $cars[7] = "BMW";
+// $cars[14] = "Toyota";
 
-$copy = array("one"=>"paper", "two"=>"pen", "three"=>"pencil");
-$copy1 = ["one"=>"look", "two"=>"leap", 'three'=>'eat'];
-echo('<br>'.$copy1['three'].'<br>');
+// $copy = array("one"=>"paper", "two"=>"pen", "three"=>"pencil");
+// $copy1 = ["one"=>"look", "two"=>"leap", 'three'=>'eat'];
+// echo('<br>'.$copy1['three'].'<br>');
 
-array_push($cars, 'Merce');
-array_push($cars, 'Merce1');
-array_push($cars, 'Merce2');
-print_r($cars);
-echo $cars[5];
+// array_push($cars, 'Merce');
+// array_push($cars, 'Merce1');
+// array_push($cars, 'Merce2');
+// print_r($cars);
+// echo $cars[5];
 
 
 

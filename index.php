@@ -109,7 +109,7 @@ $myfile = fopen('README.md', 'a+') or die('File does not exist');
   fwrite($myfile, 'A new line is written\n');
   fwrite($myfile, 'Another line is also written\n');
 
- echo fread($myfile, filesize('readme.md'));
+//  echo fread($myfile, filesize('readme.md'));
 //  fclose($myfile);
 ?>
 

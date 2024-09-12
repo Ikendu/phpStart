@@ -1,0 +1,15 @@
+[name="search"] {
+  width: 10%;
+  background-image: url(search.png);
+  background-position: 5px 5px;
+  padding: 10px;
+  padding-left: 40px;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+}
+[name="search"]:focus {
+  width: 50%;
+  background-color: blue;
+  /* transition: width 0.5s ease-in-out ; */
+  transition: width 0.3s ease-in-out;
+}

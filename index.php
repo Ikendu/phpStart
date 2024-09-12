@@ -1,24 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            [name="search"]{
-                width: 10%;
-                background-image: url(search.png);
-                background-position: 5px 5px;
-                padding: 10px;
-                padding-left: 40px;
-                background-repeat: no-repeat;
-                border-radius: 15px;
-            }
-            [name='search']:focus{
-                width: 50%;
-                background-color: blue;                
-                /* transition: width 0.5s ease-in-out ; */
-                transition: width 0.3s ease-in-out;
-                
-            }
-        </style>
+       <link rel='stylesheet' href="app.css"/>
     </head>
 <body>
 
@@ -116,7 +99,18 @@ echo '<br>Hello the last line is here <br>';
   $password = $_REQUEST['password'];
   echo $name . ' is my name'. '<br>';  
   echo $password . ' is my current password'. '<br>';
-  
+
+//   include('date.php');
+$myfile = fopen('README.md', 'a+') or die('File does not exist');
+ echo fread($myfile, filesize('readme.md'));
+//   echo fgets($myfile);
+
+//   $myfile = fopen('readme.md', 'a+') or die('File does not exist');
+  fwrite($myfile, 'A new line is written\n');
+  fwrite($myfile, 'Another line is also written\n');
+
+ echo fread($myfile, filesize('readme.md'));
+//  fclose($myfile);
 ?>
 
 </body>

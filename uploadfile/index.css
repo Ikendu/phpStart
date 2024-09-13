@@ -1,0 +1,9 @@
+body {
+  background-color: rgb(159, 185, 208);
+  margin: 0 auto;
+  display: flex;
+  height: 500px;
+}
+form {
+  margin: auto;
+}

@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>  
 <html>
 <head>
+  <link rel='stylesheet' href="app.css"/>
 </head>
 <body>  
 
@@ -10,12 +11,29 @@ $name = $email = $gender = $comment = $website = "";
 $nameErr = $emailErr = $genderErr = $websiteErr = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $name = test_input($_POST["name"]);
-  $email = test_input($_POST["email"]);
-  $website = test_input($_POST["website"]);
+  if(empty($_POST['name'])){
+    $nameErr = 'Name is empty';
+  } else{
+    $name = test_input($_POST["name"]);
+  }
+
+  if(empty($_POST['email'])){
+    $emailErr = 'Email is required';
+  } else {
+    $email = test_input($_POST["email"]);
+  }
+  
+  if(!empty($_POST['website'])){
+    $website = test_input($_POST["website"]);
+  } else {
+    $websiteErr = "The website field is required";
+  }
+  
   $comment = test_input($_POST["comment"]);
   $gender = test_input($_POST["gender"]);
 }
+
+echo 'hello you are good yes';
 
 function test_input($data) {
   $data = trim($data);
@@ -28,9 +46,9 @@ function test_input($data) {
 <h2>PHP Form Validation Example</h2>
 <form method="post" action="<?php echo htmlspecialchars("form.php");?>">  
     <!-- <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">   -->
-  Full Name: <input type="text" name="name">
+  Full Name: <input type="text" name="name"><span class='error'><?php echo $nameErr; ?></span>
   <br><br>
-  Your E-mail: <input type="text" name="email">
+  Your E-mail: <input type="text" name="email"><span class='error'><?php echo $emailErr; ?></span>    
   <br><br>
   Website: <input type="text" name="website">
   <br><br>

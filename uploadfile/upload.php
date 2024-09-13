@@ -18,8 +18,15 @@
       echo "The image size is $imagesize[3] <br>";
       // var_dump($imagesize);
     } else {
-      echo "This is not an image";
+      echo "Sorry this is not an image";
+      $uploadOk = 0;
+    } echo 'Sorry file already exist';
+
+    if(file_exists($targetfile)){
+       echo 'Sorry file already exist';
+       $uploadOk = 0;
     }
+
 
     $result = move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $targetfile);
 

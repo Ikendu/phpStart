@@ -3,7 +3,11 @@ body {
   margin: 0 auto;
   display: flex;
   height: 500px;
+  flex-direction: column;
 }
-form {
+.form {
   margin: auto;
+}
+.form h2 {
+  text-align: center;
 }

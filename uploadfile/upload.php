@@ -21,7 +21,7 @@
     } else {
       echo "Sorry this is not an image";
       $uploadOk = 0;
-    } echo 'Sorry file already exist';
+    } 
 
     // check if file already exist
     if(file_exists($targetfile)){
@@ -34,18 +34,30 @@
       echo "File cannot be larger than 500kb";
       $uploadOk = 0;
     }
-
-    $result = move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $targetfile);
-
-    if($result){
-      echo "<div class='form'>
-        <h3>The file ".htmlspecialchars(basename($_FILES['fileToUpload']['name']))." has been uploaded</h3>
-        <h2>Success!</h2>
-       </div>";
+    // Allow only some image file type
+    $imagefiletype = strtolower(pathinfo($targetfile, PATHINFO_EXTENSION));
+    if($imagefiletype != 'jpg' || $imagefiletype != 'png' || $imagefiletype != 'gif' || $imagefiletype != 'jpeg'){
+      echo 'Sorry only JPG, JPEG, PNG or GIF images type is allowed.';
+      $uploadOk = 0;
     }
 
-    // $uploadOk = 1;
-    // $imagefiletype = strtolower(pathinfo($targetfile, PATHINFO_EXTENSION));
+    //Check if any all image test is passed
+    if($uploadOk == 0){
+      echo 'Try again';
+    }else{
+       $result = move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $targetfile);
+
+      if($result){
+        echo "<div class='form'>
+          <h3>The file ".htmlspecialchars(basename($_FILES['fileToUpload']['name']))." has been uploaded</h3>
+          <h2>Success!</h2>
+        </div>";
+      }
+
+    }
+
+   
+    
 
 ?>
   

@@ -101,16 +101,11 @@ echo '<br>Hello the last line is here <br>';
   echo $password . ' is my current password'. '<br>';
 
 //   include('date.php');
-$myfile = fopen('README.md', 'a+') or die('File does not exist');
- echo fread($myfile, filesize('readme.md'));
-//   echo fgets($myfile);
-
-//   $myfile = fopen('readme.md', 'a+') or die('File does not exist');
-  fwrite($myfile, 'A new line is written\n');
-  fwrite($myfile, 'Another line is also written\n');
-
-//  echo fread($myfile, filesize('readme.md'));
-//  fclose($myfile);
+$myfile = fopen('mytext', 'a');
+fwrite($myfile, "how are you doing \n");
+fwrite($myfile, "It is well\n");
+fclose($myfile);
+readfile('mytext');
 ?>
 
 </body>

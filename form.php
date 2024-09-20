@@ -63,6 +63,7 @@ function test_input($data) {
 </form>
 
 <?php
+
 echo "<h2>Your Input:</h2>";
 echo $name;
 echo "<br>";
@@ -73,6 +74,14 @@ echo "<br>";
 echo $comment;
 echo "<br>";
 echo $gender;
+echo "<br>";
+
+date_default_timezone_set("Africa/Lagos");
+// $nextyear = strtotime("next year");
+echo 'Copyright 1999 - '. date('l h:i:sa:d-m-Y ');
+echo "<br>";
+$d=mktime(11, 14, 54);
+echo "Created date is " . date("Y-m-d h:i:sa", $d);
 ?>
 
 </body>

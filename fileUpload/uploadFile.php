@@ -9,9 +9,9 @@
     <h3>File uplaoding page</h3>
     <?php 
     $myfolder = "myFiles/";
-    $myfile = basename($_FILES[""])
+    $myfile = $myfolder . basename($_FILES["fileToUpload"]["name"]);
 
-
+    move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $myfile);
     ?>
 </body>
 </html>

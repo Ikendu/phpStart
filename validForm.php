@@ -1,3 +1,11 @@
+<?php
+$nameErr = $emailErr = $genderErr = $websiteErr = "";
+$name = $email = $gender = $comment = $website = "";
+
+session_start();
+
+?>
+
 <!DOCTYPE HTML>  
 <html>
 <head>
@@ -9,23 +17,26 @@
 
 <?php
 // define variables and set to empty values
-$nameErr = $emailErr = $genderErr = $websiteErr = "";
-$name = $email = $gender = $comment = $website = "";
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["name"])) {
     $nameErr = "Name is required";    
   } elseif(!preg_match("/^[a-zA-Z-' ]*$/",$name)){
     // check if name only contains letters and whitespace
-    $nameErr = "Only letters and white space allowed";    
+    $nameErr = "Only letters and white space allowed";        
   } else{
     $name = test_input($_POST["name"]);
+    setcookie("user", $name, time() + (86400 * 30), "/");
+    $_SESSION["user"] = $name;
   }
   
   if (empty($_POST["email"])) {
     $emailErr = "Email is required";
+
   } else {
     $email = test_input($_POST["email"]);
+    $_SESSION["email"] = $email;
     // check if e-mail address is well-formed
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $emailErr = "Invalid email format";
@@ -36,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $website = "";
   } else {
     $website = test_input($_POST["website"]);
+    $_SESSION["website"] = $website;
     // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
     if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
       $websiteErr = "Invalid URL";
@@ -46,12 +58,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $comment = "";
   } else {
     $comment = test_input($_POST["comment"]);
+    $_SESSION["comment"] = $comment;
   }
 
   if (empty($_POST["gender"])) {
     $genderErr = "Gender is required";
   } else {
     $gender = test_input($_POST["gender"]);
+    $_SESSION["gender"] = $gender;
   }
 }
 
@@ -77,6 +91,7 @@ function test_input($data) {
   <br><br>
   Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
   <br><br>
+  Age: <input type="number" name="" id="" min="16" max="60">
   Gender:
   <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
   <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male

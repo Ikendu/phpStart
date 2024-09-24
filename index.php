@@ -38,7 +38,8 @@
     echo $name . '<br>'; 
     echo $address . '<br>';
     echo $school . '<br>';
-    echo $age . '<br>';       
+    echo $age . '<br>';    
+    echo $_COOKIE["user"];    
 ?>
 
 </body>

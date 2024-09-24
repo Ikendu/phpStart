@@ -1,6 +1,6 @@
 <?php
 setcookie("user", "Ezeuba", time() + (30 * 86400),  "/");
-echo time();
+session_start();
 ?>
 
 
@@ -14,7 +14,13 @@ echo time();
   <body>
     <h1>The cookie page</h1>
     <?php
-      echo $_COOKIE["user"];
+      $_SESSION["fullname"] = "Ezeuba Plenty";
+      $_SESSION["address"] = "5 Aku road";
+      $_SESSION["school"] = "UNN school";
+      echo $_COOKIE["user"] . "<br>";
+      echo $_SESSION["fullname"] . "<br>";
+      echo $_SESSION["school"] . "<br>";
+    
     ?>
     
   </body>

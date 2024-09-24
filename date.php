@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $time = strtotime('+5 months');
 $date = date('Y.m.d', $time);
 echo $date;
@@ -13,5 +15,10 @@ while($startday < $endday){
 
 echo 'Including files <br>';
 
-include 'validForm.php';
+echo $_COOKIE["user"] . "<br>";
+echo $_SESSION["fullname"] . "<br>";
+echo $_SESSION["school"] . "<br>";
+    
+
+// include 'validForm.php';
 ?>

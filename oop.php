@@ -23,7 +23,7 @@ $myObj->setName("David");
 $myName = $myObj->getName();
 
 $myObj->email = "davidexe@gmail.com";
-echo $myObj->email . "<br>";
+echo 'My email is' . $myObj->email . "<br>";
 echo $myName . "<br>";
 echo $myObj->age . "<br>";
 print_r($myObj instanceof MyClass);

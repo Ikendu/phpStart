@@ -26,6 +26,7 @@ $myObj->email = "davidexe@gmail.com";
 echo 'My email is' . $myObj->email . "<br>";
 echo $myName . "<br>";
 echo $myObj->age . "<br>";
+echo $myObj->name . "<br>";
 print_r($myObj instanceof MyClass);
 
 ?>

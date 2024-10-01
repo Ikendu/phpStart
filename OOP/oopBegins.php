@@ -60,7 +60,32 @@
 
     echo $hen->name;
 
+// A car class
+    class Car{
+        public $name;
+        public $model;
+        public $yearOfProduction;
+        public $speed; 
+        
+        function __construct($name, $model, $year, $speed){
+            $this->name = $name;
+            $this->model = $model;
+            $this->yearOfProduction = $year;
+            $this->speed = $speed;             
+        }
 
+        function showCar(){
+            echo $this->name . " is my name <br>";
+            echo $this->model . " is my model <br>";
+            echo $this->yearOfProduction . " is when I was made <br>";
+            echo $this->speed . " is my speed limit <br>";            
+        }
+    }
+
+    echo "<br>";
+
+$toyota = new Car('Toyota', '2020AG', 2023, '200m/h');
+$toyota->showCar();
 
 
 

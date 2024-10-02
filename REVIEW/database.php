@@ -13,18 +13,18 @@
     $password = ""; 
     $database = "ezeuba";
 
-    // using procedural style to connect
-    $conn = mysqli_connect($server, $username, $password, $database);
+    // using OBJECT style to connect
+    $conn = new mysqli($server, $username, $password, $database);
 
-    if(!$conn){
-        die("An error occored <br>");
+    if(!$conn->connect_error){
+        die("An error occored: $conn->connect_error <br>");
     }
     echo "{$username} connection was successful <br>";
 
     // creating a database
     // $create = "CREATE DATABASE ezeuba";
 
-    // if(mysqli_query($conn, $create)){
+    // if($conn->query($create) === TRUE){
     //     echo "connection successfull <br>";
     // } else {
     //     echo "database creation not successfull <br>";
@@ -49,7 +49,7 @@
         time TIMESTAMP ON UPDATE CURRENT_TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )";
 
-    if(mysqli_query($conn, $students)){
+    if($conn->query($students) === TRUE){
         echo "Table created successfully <br>";
     }else {
         echo "Error in creating table <br>" . mysqli_error($conn);

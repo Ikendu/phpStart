@@ -14,6 +14,14 @@
         public $legs;
         public $sound;
 
+        function createAnimal($n, $c, $leg, $s){
+            $this->name = $n;
+            $this->color = $c;
+            $this->legs = $leg; 
+            $this->sound = $s;    
+            
+        }
+
         // .........................................for name
         function addName($n){
             $this->name = $n;
@@ -58,7 +66,11 @@
     $hen->addSound("kokoko");
     $hen->showAnimal();
 
-    echo $hen->name;
+    echo "<br>";
+
+    $fish = new Animal();
+    $fish->createAnimal("Shark", "White and Black", "0" , "Wallow");
+    $fish->showAnimal();
 
 // A car class
     class Car{

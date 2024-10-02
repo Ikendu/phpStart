@@ -57,7 +57,7 @@
 
     $adduser = "INSERT INTO students (name, email, address, reg_num) VALUES ('Ezeuba1', 'ezuba@gmail.com', '20 dadelalla Ekpoma', '2017/20202020');";
     $adduser .= "INSERT INTO students (name, email, address, reg_num) VALUES ('Obinna', 'obinna@gmail.com', '30 Nana Street', '2017/40505');";
-    $adduser .= "INSERT INTO students (name, email, address, reg_num) VALUES ('Adeze', 'adaeze@gmail.com', '35 Okama', '3020/83eu')";
+    $adduser .= "INSERT INTO students (name, email, address, reg_num) VALUES ('Adeze', 'adaeze@gmail.com', '35 Okama', '3020/8390eu')";
     if($conn->multi_query($adduser)){
         echo "New record created";
     }else{

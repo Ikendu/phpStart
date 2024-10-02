@@ -3,22 +3,35 @@
 $server = "localhost";
 $username = "root";
 $password = "";
+$database = "workers";
 
 
-$conn = new mysqli($server, $username, $password);
+$conn = new mysqli($server, $username, $password, $database);
 
-if($conn->connect_error){
-  die("Connection error");
-}
-echo("Connection successful <br>");
+$newtable = "CREATE TABLE emplorer (
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(20) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  gender VARCHAR(10),
+  comment VARCHAR(200),
+  website VARCHAR(100),
+  date TIMESTAMP ON UPDATE CURRENT_TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)";
 
-$newbase = "CREATE DATABASE workers";
+// if($conn->connect_error){
+//   die("Connection error");
+// }
+// echo("Connection successful <br>");
 
-if($conn->query($newbase) === TRUE){
-  echo "$newbase created"; 
-} else{
-  echo "Creation failded";
-}
+// $newbase = "CREATE DATABASE workers";
+
+// if($conn->query($newbase) === TRUE){
+//   echo "Database created"; 
+// } else{
+//   echo "Creation failded $conn->error";
+// }
+
+
 
 $nameErr = $emailErr = $genderErr = $websiteErr = "";
 $name = $email = $gender = $comment = $website = "";

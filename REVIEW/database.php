@@ -16,10 +16,10 @@
     // using OBJECT style to connect
     $conn = new mysqli($server, $username, $password, $database);
 
-    if(!$conn->connect_error){
-        die("An error occored: $conn->connect_error <br>");
+    if($conn->connect_error){
+        die("An error occured: $conn->connect_error <br>");
     }
-    echo "{$username} connection was successful <br>";
+    // echo "{$username} connection was successful <br>";
 
     // creating a database
     // $create = "CREATE DATABASE ezeuba";
@@ -43,17 +43,27 @@
         id INT(6) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(20) NOT NULL,
         email VARCHAR(50) NOT NULL,
-        address VARCHAR()200,
-        reg_num VARCHAR(30) NOT NULL,
         address VARCHAR(200),
+        reg_num VARCHAR(30) NOT NULL,
         time TIMESTAMP ON UPDATE CURRENT_TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )";
 
     if($conn->query($students) === TRUE){
         echo "Table created successfully <br>";
-    }else {
-        echo "Error in creating table <br>" . mysqli_error($conn);
     }
+    // else {
+    //     echo "Error in creating table: " . mysqli_error($conn);
+    // }
+
+    $adduser = "INSERT INTO students (name, email, address, reg_num) VALUES ('Ezeuba1', 'ezuba@gmail.com', '20 dadelalla Ekpoma', '2017/20202020');";
+    $adduser .= "INSERT INTO students (name, email, address, reg_num) VALUES ('Obinna', 'obinna@gmail.com', '30 Nana Street', '2017/40505');";
+    $adduser .= "INSERT INTO students (name, email, address, reg_num) VALUES ('Adeze', 'adaeze@gmail.com', '35 Okama', '3020/83eu')";
+    if($conn->multi_query($adduser)){
+        echo "New record created";
+    }else{
+        echo "user not created";
+    }
+    print_r($conn)
     // using object oriented style
     // $conn = new mysqli($server, $username, $password);
 

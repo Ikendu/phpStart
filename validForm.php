@@ -8,15 +8,24 @@ $database = "workers";
 
 $conn = new mysqli($server, $username, $password, $database);
 
-$newtable = "CREATE TABLE emplorer (
-  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(20) NOT NULL,
-  email VARCHAR(50) NOT NULL,
-  gender VARCHAR(10),
-  comment VARCHAR(200),
-  website VARCHAR(100),
-  date TIMESTAMP ON UPDATE CURRENT_TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-)";
+$saveDate = ""
+
+// Table created
+// $newtable = "CREATE TABLE emplorer (
+//   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//   name VARCHAR(20) NOT NULL,
+//   email VARCHAR(50) NOT NULL,
+//   gender VARCHAR(10),
+//   comment VARCHAR(200),
+//   website VARCHAR(100),
+//   date TIMESTAMP ON UPDATE CURRENT_TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+// )";
+
+// if($conn->query($newtable) === TRUE){
+//   echo "Table created successfully";
+// } else {
+//   echo "Table not created $conn->error";
+// }
 
 // if($conn->connect_error){
 //   die("Connection error");

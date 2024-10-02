@@ -1,4 +1,25 @@
 <?php
+// Connecting to database
+$server = "localhost";
+$username = "root";
+$password = "";
+
+
+$conn = new mysqli($server, $username, $password);
+
+if($conn->connect_error){
+  die("Connection error");
+}
+echo("Connection successful <br>");
+
+$newbase = "CREATE DATABASE workers";
+
+if($conn->query($newbase) === TRUE){
+  echo "$newbase created"; 
+} else{
+  echo "Creation failded";
+}
+
 $nameErr = $emailErr = $genderErr = $websiteErr = "";
 $name = $email = $gender = $comment = $website = "";
 
@@ -123,19 +144,23 @@ echo $gender;
 <?php date_default_timezone_set('Africa/Lagos'); ?>
 <?php echo "The time is " . date("h:i:sa"); ?>
 <br>
+
+
 <?php
-$d = mktime(11, 14, 54, 8, 12, 2014);
-$dt = strtotime("April 15 2014 10:30pm ");
-echo "Created date is " . date("m-Y-d h:i:sa", $d).'<br>';
-echo date("d-m-Y h:i:sa", $dt) . '<br>';
 
-$startday = strtotime('Saturday');
-$endday = strtotime('+9 weeks', $startday);
+ 
+// $d = mktime(11, 14, 54, 8, 12, 2014);
+// $dt = strtotime("April 15 2014 10:30pm ");
+// echo "Created date is " . date("m-Y-d h:i:sa", $d).'<br>';
+// echo date("d-m-Y h:i:sa", $dt) . '<br>';
 
-while($startday < $endday){
-    echo date('M d', $startday).'<br>';
-    $startday = strtotime('+1 week', $startday);
-}
+// $startday = strtotime('Saturday');
+// $endday = strtotime('+9 weeks', $startday);
+
+// while($startday < $endday){
+//     echo date('M d', $startday).'<br>';
+//     $startday = strtotime('+1 week', $startday);
+// }
 
 ?>
 </body>

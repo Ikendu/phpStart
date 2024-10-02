@@ -64,7 +64,7 @@
         echo "user not created";
     }
     print_r($conn)
-    // using object oriented style
+    // connecting to database
     // $conn = new mysqli($server, $username, $password);
 
     // if($conn->connect_error){

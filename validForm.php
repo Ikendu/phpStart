@@ -8,8 +8,6 @@ $database = "workers";
 
 $conn = new mysqli($server, $username, $password, $database);
 
-$saveDate = ""
-
 // Table created
 // $newtable = "CREATE TABLE emplorer (
 //   id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -136,9 +134,9 @@ function test_input($data) {
   <br><br>
   Age: <input type="number" name="" id="" min="16" max="60">
   Gender:
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="female">Female
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="male">Male
-  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="other">Other  
+  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="Female">Female
+  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="Male">Male
+  <input type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="Other">Other  
   <span class="error">* <?php echo $genderErr;?></span>
   <br><br>
   <input type="submit" name="submit" value="Submit">  
@@ -159,6 +157,23 @@ echo $comment;
 echo "<br>";
 echo $gender;  
 }
+
+$saveDate = $conn->prepare("INSERT INTO emplorer (name, email, gender, comment, website) VALUES (?, ?, ?, ?,?)");
+$saveDate->bind_param("sssss", $name, $email, $website, $comment, $gender);
+if($saveDate->execute()){
+  echo "Emplorer details inserted";
+}else {
+  echo "Details not created";
+}
+;
+
+// if($conn->query($saveDate)){
+//   echo "Emplorer details inserted";
+// } else {
+//   echo "Details not created";
+// }
+
+
 ?>
 <br>
 &copy; 2020 - <?php echo date("Y"); ?>

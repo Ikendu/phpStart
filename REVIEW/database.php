@@ -63,7 +63,6 @@
     }else{
         echo "user not created";
     }
-    print_r($conn)
     // connecting to database
     // $conn = new mysqli($server, $username, $password);
 

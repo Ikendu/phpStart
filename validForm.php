@@ -167,6 +167,19 @@ if($saveDate->execute()){
 }
 ;
 
+$getData = "SELECT name, email, gender, comment, website FROM emplorer";
+
+$result = $conn->query($getData);
+
+$row = $result->num_rows;
+if($row > 0){
+  
+  while($array = $result->fetch_assoc()){
+    echo $array['name'] ." ". $array['email'] ." ". $array['gender'] ." ". $array['comment'] ." ". $array['website'];
+  }
+}
+$conn->close()
+
 // if($conn->query($saveDate)){
 //   echo "Emplorer details inserted";
 // } else {

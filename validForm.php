@@ -158,26 +158,49 @@ echo "<br>";
 echo $gender;  
 }
 
-$saveDate = $conn->prepare("INSERT INTO emplorer (name, email, gender, comment, website) VALUES (?, ?, ?, ?,?)");
-$saveDate->bind_param("sssss", $name, $email, $website, $comment, $gender);
-if($saveDate->execute()){
-  echo "Emplorer details inserted";
-}else {
-  echo "Details not created";
-}
+// Push data to database
+// $saveDate = $conn->prepare("INSERT INTO emplorer (name, email, gender, comment, website) VALUES (?, ?, ?, ?,?)");
+// $saveDate->bind_param("sssss", $name, $email, $website, $comment, $gender);
+// if($saveDate->execute()){
+//   echo "Emplorer details inserted";
+// }else {
+//   echo "Details not created";
+// }
 ;
 
-$getData = "SELECT name, email, gender, comment, website FROM emplorer";
+// $getData = "SELECT name, email, gender, comment, website FROM emplorer ORDER BY name";
+$getData = "SELECT * FROM emplorer LIMIT 10";
 
 $result = $conn->query($getData);
 
 $row = $result->num_rows;
-if($row > 0){
-  
+// echo "hello";
+
+if($row > 0){  
+  echo "<table><tr><th>Name</th><th>Email</th><th>Gender</th><th>Comment</th><th>Website</th></tr>";
   while($array = $result->fetch_assoc()){
-    echo $array['name'] ." ". $array['email'] ." ". $array['gender'] ." ". $array['comment'] ." ". $array['website'];
+    echo "<tr><td>{$array['name']}</td><td>{$array['email']}</td><td>{$array['gender']}</td><td>{$array['comment']}</td><td>{$array['website']}</td>";
   }
+  echo "</table>";
 }
+
+// Delete data from database
+$deleter = "DELETE FROM emplorer WHERE id=105";
+
+if($conn->query($deleter) === TRUE){
+  echo "data deleted successfully";
+} else {
+  echo "Not deleted";
+};
+
+$updater = "UPDATE emplorer SET name='Gift Onyii' WHERE id='3'";
+
+if($conn->query($updater) === TRUE){
+  echo "Data updated successfully";
+} else {
+  echo "Update failed";
+}
+
 $conn->close()
 
 // if($conn->query($saveDate)){

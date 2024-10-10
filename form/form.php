@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>  
 <html>
 <head>
-  <link rel='stylesheet' href="app.css"/>
+  <link rel='stylesheet' href="style.css"/>
 </head>
 <body>  
 
@@ -33,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $gender = test_input($_POST["gender"]);
 }
 
-echo 'hello you are good yes';
 
 function test_input($data) {
   $data = trim($data);

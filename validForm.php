@@ -19,7 +19,7 @@ $conn = new mysqli($server, $username, $password, $database);
 //   date TIMESTAMP ON UPDATE CURRENT_TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 // )";
 
-// if($conn->query($newtable) === TRUE){
+// if($conn->query($newtable)){
 //   echo "Table created successfully";
 // } else {
 //   echo "Table not created $conn->error";

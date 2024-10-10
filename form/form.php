@@ -6,6 +6,15 @@
 <body>  
 
 <?php
+// Connect Database
+$server = "localhost";
+$username = "root";
+$password = "";
+$database = "digitsl";
+
+$sql = new mysqli($server, $username, $password);
+
+
 // define variables and set to empty values
 $name = $email = $gender = $comment = $website = "";
 $nameErr = $emailErr = $genderErr = $websiteErr = "";
@@ -42,24 +51,40 @@ function test_input($data) {
 }
 ?>
 
-<h2>PHP Form Validation Example</h2>
+
+<section>
+  
 <form method="post" action="<?php echo htmlspecialchars("form.php");?>">  
+  <h2>PHP Form Validation Example</h2>
     <!-- <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">   -->
-  Full Name: <input type="text" name="name"><span class='error'><?php echo $nameErr; ?></span>
-  <br><br>
-  Your E-mail: <input type="text" name="email"><span class='error'><?php echo $emailErr; ?></span>    
-  <br><br>
-  Website: <input type="text" name="website">
-  <br><br>
-  Comment: <textarea name="comment" rows="5" cols="40"></textarea>
-  <br><br>
-  Gender:
-  <input type="radio" name="gender" value="female">Female
-  <input type="radio" name="gender" value="male">Male
-  <input type="radio" name="gender" value="other">Other
-  <br><br>
+  <div>
+    <label for="name">Full Name:</label>
+    <input type="text" name="name" id="name"><span class='error'><?php echo $nameErr; ?></span>   
+  </div>
+  
+  <div>
+    <label for="email">Your E-mail:</label> 
+    <input type="text" name="email" id="email"><span class='error'><?php echo $emailErr; ?></span>   
+  </div>
+   
+  <div>
+    <label for="website">Website:</label>     
+    <input type="text" name="website" id="website">
+  </div>
+
+  <div>
+     <label for="comment">Comment:</label>  
+     <textarea name="comment" rows="5" cols="40" id="comment"></textarea>
+  </div>
+  <div>
+    <label for="gender">Gender:</label> 
+    <input type="radio" name="gender" value="female">Female
+    <input type="radio" name="gender" value="male">Male
+    <input type="radio" name="gender" value="other">Other
+  </div>  
   <input type="submit" name="submit" value="Submit">  
 </form>
+</section>
 
 <?php
 

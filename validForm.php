@@ -159,13 +159,13 @@ echo $gender;
 }
 
 // Push data to database
-// $saveDate = $conn->prepare("INSERT INTO emplorer (name, email, gender, comment, website) VALUES (?, ?, ?, ?,?)");
-// $saveDate->bind_param("sssss", $name, $email, $website, $comment, $gender);
-// if($saveDate->execute()){
-//   echo "Emplorer details inserted";
-// }else {
-//   echo "Details not created";
-// }
+$saveDate = $conn->prepare("INSERT INTO emplorer (name, email, gender, comment, website) VALUES (?, ?, ?, ?,?)");
+$saveDate->bind_param("sssss", $name, $email, $website, $comment, $gender);
+if($saveDate->execute()){
+  echo "Emplorer details inserted";
+}else {
+  echo "Details not created";
+}
 ;
 
 // $getData = "SELECT name, email, gender, comment, website FROM emplorer ORDER BY name";

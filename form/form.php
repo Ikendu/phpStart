@@ -10,9 +10,15 @@
 $server = "localhost";
 $username = "root";
 $password = "";
-$database = "digitsl";
+$database = "digital";
 
-$sql = new mysqli($server, $username, $password);
+$sql = new mysqli($server, $username, $password, $database);
+
+// if($sql->connect_error){
+//   echo "Connection Error ".$sql->connect_error;
+// } else{
+//   echo "Connect went well";
+// }
 
 
 // define variables and set to empty values
@@ -99,6 +105,39 @@ echo $comment;
 echo "<br>";
 echo $gender;
 echo "<br>";
+
+$statement = $sql->prepare("INSERT INTO users (fullname, email, comment, website, gender) VALUES (?, ?, ?, ?, ?)");
+$statement->bind_param("sssss", $name, $email, $comment, $website, $gender);
+if($name != ""){
+  if($statement->execute()){
+    $name = $email = $gender = $comment = $website = "";  
+  }
+}
+
+$statement->close();
+
+
+
+
+//   exit();
+
+
+$querstring = "SELECT fullname, email, comment, website, gender FROM users";
+
+$result = $sql->query($querstring);
+if($result->num_rows > 0){
+  // Get my data
+  while($row = $result->fetch_assoc()){
+    echo $row["fullname"] . "<br>";
+  }
+} else {
+  echo "Empty Database";
+}
+
+$sql->close();
+header($_SERVER["PHP_SELF"]);
+
+// print_r($result);
 
 date_default_timezone_set("Africa/Lagos");
 // $nextyear = strtotime("next year");

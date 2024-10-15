@@ -127,9 +127,24 @@ $querstring = "SELECT fullname, email, comment, website, gender FROM users";
 $result = $sql->query($querstring);
 if($result->num_rows > 0){
   // Get my data
+  echo"<table class='table'>
+        <tr>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Comment</th>
+          <th>Website</th>
+          <th>Gender</th>      
+        </tr>";
   while($row = $result->fetch_assoc()){
-    echo $row["fullname"] . "<br>";
+    echo "<tr>
+            <td>{$row["fullname"]}</td>
+            <td>{$row["email"]}</td>
+            <td>{$row["comment"]}</td>
+            <td>{$row["website"]}</td>
+            <td>{$row["gender"]}</td>
+          </tr>";
   }
+    echo "</table>";
 } else {
   echo "Empty Database";
 }

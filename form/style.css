@@ -37,3 +37,31 @@ label {
 .error {
   color: rgb(106, 8, 8);
 }
+
+table {
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 2px solid;
+  border-collapse: collapse;
+}
+th {
+  padding: 20px;
+  font-size: 20px;
+  background-color: rgb(22, 83, 62);
+  color: aliceblue;
+}
+th:hover {
+  background-color: aquamarine;
+  color: rgb(22, 83, 62);
+}
+td {
+  padding: 10px;
+  text-align: center;
+}
+tr:nth-child(odd) {
+  background-color: rgb(170, 211, 198);
+}

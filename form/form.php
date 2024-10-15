@@ -111,23 +111,19 @@ $statement->bind_param("sssss", $name, $email, $comment, $website, $gender);
 if($name != ""){
   if($statement->execute()){
     $name = $email = $gender = $comment = $website = "";  
+
   }
 }
 
 $statement->close();
 
 
-
-
-//   exit();
-
-
-$querstring = "SELECT fullname, email, comment, website, gender FROM users";
+$querstring = "SELECT fullname, email, comment, website, gender FROM users WHERE gender='male'";
 
 $result = $sql->query($querstring);
 if($result->num_rows > 0){
   // Get my data
-  echo"<table class='table'>
+  echo"<table>
         <tr>
           <th>Full Name</th>
           <th>Email</th>
@@ -136,13 +132,16 @@ if($result->num_rows > 0){
           <th>Gender</th>      
         </tr>";
   while($row = $result->fetch_assoc()){
-    echo "<tr>
+    if($row["fullname"]){
+       echo "<tr>
             <td>{$row["fullname"]}</td>
             <td>{$row["email"]}</td>
             <td>{$row["comment"]}</td>
             <td>{$row["website"]}</td>
             <td>{$row["gender"]}</td>
           </tr>";
+    }
+   
   }
     echo "</table>";
 } else {
@@ -151,6 +150,7 @@ if($result->num_rows > 0){
 
 $sql->close();
 header($_SERVER["PHP_SELF"]);
+  // exit();
 
 // print_r($result);
 

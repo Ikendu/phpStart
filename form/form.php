@@ -109,50 +109,74 @@ echo "<br>";
 $statement = $sql->prepare("INSERT INTO users (fullname, email, comment, website, gender) VALUES (?, ?, ?, ?, ?)");
 $statement->bind_param("sssss", $name, $email, $comment, $website, $gender);
 if($name != ""){
-  echo("User details is empty");
-} else {
-  if($statement->execute()){
-    $name = $email = $gender = $comment = $website = "";  
-
+   if($statement->execute()){
+    $name = $email = $gender = $comment = $website = "";
   }
+} else {
+    echo("User details is empty");
 }
 
 $statement->close();
 
+// $deleteData = "DELETE FROM users where fullname=''";
+// if($sql->query($deleteData)){
+//   echo"Empty data deleted successfully";
+// }
 
-$querstring = "SELECT fullname, email, comment, website, gender FROM users WHERE gender='male'";
+// $querstring = "SELECT fullname, email, comment, website, gender FROM users WHERE gender='male' ";
+// $querstring = "SELECT * FROM users LIMIT 10 OFFSET 20";
 
-$result = $sql->query($querstring);
+
+// $deleter = "DELETE FROM users WHERE fullname=''";
+// if($sql->query($deleter)){
+//   echo "Deleted successfully";
+// }else {
+//   echo $sql->error;
+// }
+
+// $update = "UPDATE users SET fullname='Emeka Eze', comment='I am getting better with php' WHERE fullname='Emeka' ";
+// $sql->query($update);
+
+$querystring = "SELECT * FROM users LIMIT 20 OFFSET 15"; 
+// $reset = "RESET QUERY CACHE";
+// $sql->query($reset); 
+
+
+$result = $sql->query($querystring);
 if($result->num_rows > 0){
   // Get my data
   echo"<table>
         <tr>
+        <th>S/N</th>
           <th>Full Name</th>
           <th>Email</th>
           <th>Comment</th>
           <th>Website</th>
           <th>Gender</th>      
         </tr>";
+  $num = 1;
   while($row = $result->fetch_assoc()){
     if($row["fullname"]){
        echo "<tr>
+            <td>{$num}</td>
             <td>{$row["fullname"]}</td>
             <td>{$row["email"]}</td>
             <td>{$row["comment"]}</td>
             <td>{$row["website"]}</td>
             <td>{$row["gender"]}</td>
           </tr>";
-    }
-   
+    }   
+    $num++;
   }
+
     echo "</table>";
 } else {
   echo "Empty Database";
 }
 
 $sql->close();
-header($_SERVER["PHP_SELF"]);
-  // exit();
+header("Location: " . $_SERVER["PHP_SELF"]);
+  exit();
 
 // print_r($result);
 

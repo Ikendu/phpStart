@@ -109,6 +109,8 @@ echo "<br>";
 $statement = $sql->prepare("INSERT INTO users (fullname, email, comment, website, gender) VALUES (?, ?, ?, ?, ?)");
 $statement->bind_param("sssss", $name, $email, $comment, $website, $gender);
 if($name != ""){
+  echo("User details is empty");
+} else {
   if($statement->execute()){
     $name = $email = $gender = $comment = $website = "";  
 

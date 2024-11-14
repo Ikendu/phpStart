@@ -1,6 +1,3 @@
-.formCeter {
-  margin-top: 100px !important;
-  /* display: flex;
-  align-items: center;
-  justify-items: center; */
+.formCenter {
+  margin: 100px !important;
 }

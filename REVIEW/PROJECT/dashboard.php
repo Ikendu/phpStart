@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['id'])) {
-    header("Location: login.php");
+    header("Location: loginPage.php");
     exit;
 }
 ?>
@@ -13,6 +13,8 @@ if (!isset($_SESSION['id'])) {
     <title>Dashboard</title>
 </head>
 <body>
+    <?php include "header.html"?>
+    <a href="index.html">BR Homes</a>
     <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
     <p><a href="logout.php">Logout</a></p>
 </body>

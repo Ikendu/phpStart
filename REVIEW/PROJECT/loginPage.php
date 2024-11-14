@@ -34,6 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="style.css">
     <title>Login</title>
     <style>
         /* Basic CSS styling */
@@ -46,13 +48,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
-<div class="form-container">
+    <?php
+    include "header.html"
+    ?>
+<div class="form-container formCeter">
     <h2>Login</h2>
-    <form action="login.php" method="post">
+    <form action="loginPage.php" method="post">
         <input type="text" name="username" placeholder="Username" required>
         <input type="password" name="password" placeholder="Password" required>
         <input type="submit" value="Login">
     </form>
 </div>
+ <?php
+    include "footer.html"
+    ?>
 </body>
 </html>

@@ -8,12 +8,9 @@
   </head>
   <body>
     <!-- Navbar (sit on top) -->
-
-
 <?php
 include 'header.html'
-?>
-    
+?>  
 
     <!-- Header -->
     <header

@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      <?php
     include "header.html"
     ?>
-<div class="form-container formCeter">
+<div class="form-container formCenter">
     <h2>Register</h2>
     <form action="registerPage.php" method="post">
         <input type="text" name="username" placeholder="Username" required>

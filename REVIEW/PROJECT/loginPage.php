@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php
     include "header.html"
     ?>
-<div class="form-container formCeter">
+<div class="form-container formCenter">
     <h2>Login</h2>
     <form action="loginPage.php" method="post">
         <input type="text" name="username" placeholder="Username" required>
